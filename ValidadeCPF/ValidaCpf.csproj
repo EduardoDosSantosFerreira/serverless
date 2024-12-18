@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Define a versão do framework .NET que será utilizada -->
+    <TargetFramework>net6.0</TargetFramework>
+    <!-- Define a versão do Azure Functions que será utilizada -->
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Referência ao pacote do SDK do Azure Functions -->
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Configurações para o arquivo host.json -->
+    <None Update="host.json">
+      <!-- Copia o arquivo host.json para o diretório de saída se for mais recente -->
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <!-- Configurações para o arquivo local.settings.json -->
+    <None Update="local.settings.json">
+      <!-- Copia o arquivo local.settings.json para o diretório de saída se for mais recente -->
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <!-- Nunca copia o arquivo local.settings.json para o diretório de publicação -->
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
